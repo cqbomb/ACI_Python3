@@ -7,6 +7,7 @@
 # https://ke.qq.com/course/271956?tuin=24199d8a
 import requests
 import urllib3
+import json
 urllib3.disable_warnings(urllib3.exceptions.InsecureRequestWarning)
 
 username = "admin"
@@ -25,5 +26,13 @@ def get_session(ip):
     return client
 
 
+dict_data = {'totalCount': '1', 'imdata': [{'fvTenant': {'attributes': {'childAction': '', 'descr': '', 'dn': 'uni/tn-Heroes', 'extMngdBy': '', 'lcOwn': 'local', 'modTs': '2018-11-29T13:29:29.152+00:00', 'monPolDn': 'uni/tn-common/monepg-default', 'name': 'Heroes', 'nameAlias': '', 'ownerKey': '', 'ownerTag': '', 'status': '', 'uid': '15374'}}}]}
+
+
+def pprint_json(json_data):
+    print(json.dumps(json_data, indent=4, sort_keys=True))
+
+
 if __name__ == "__main__":
-    print(get_session(apic_host))
+    # print(get_session(apic_host))
+    pprint_json(dict_data)
