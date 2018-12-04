@@ -16,7 +16,7 @@ from RESTAPI.restapi_0_login import get_session, apic_host, my_headers, pprint_j
 # fvAp = Application [ap-]
 # fvAEPg = Endpoint Groups [epg-]
 # fvSubnet = Subnet [subnet-[x.x.x.x/x]]
-# l3extOut = Layer 3 External Out (used to form routed connections with devices external to the ACI fabric)
+# l3extOut = Layer 3 External Out
 
 
 # Search by Class
@@ -93,17 +93,18 @@ def search_by_dn_filter(ip, dn, filter):
 
 def tenant_children_show(ip, tenant_name):
     request_url = 'https://' + ip + '/api/node/mo/uni/tn-' + tenant_name + '.json?query-target=children'
+    print(request_url)
     session = get_session(ip)
     result = session.get(request_url, headers=my_headers)
     return result.json()
 
 
 if __name__ == '__main__':
-    # print(query_tenants(apic_host))
+    # pprint_json(query_tenants(apic_host))
     # tenants_show(apic_host)
     # pprint_json(tenant_show(apic_host, "Heroes"))
-    # pprint_json(search_by_dn(apic_host, "uni/tn-Heroes/ap-Save_The_Planet/epg-app"))
+    pprint_json(search_by_dn(apic_host, "uni/tn-Heroes/ap-Save_The_Planet/epg-app"))
     # pprint_json(search_by_dn(apic_host, "uni/tn-Heroes/ap-Save_The_Planet/epg-web"))
-    pprint_json(search_by_dn_filter(apic_host, "uni/tn-Heroes", '?query-target=children'))
+    # pprint_json(search_by_dn_filter(apic_host, "uni/tn-Heroes", '?query-target=children'))
     # pprint_json(tenant_children_show(apic_host, "Heroes"))
 

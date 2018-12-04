@@ -73,7 +73,7 @@ def epg_add_contract(ip, tenant_name, app_profile_name, epg_name, contract_name,
 
 
 if __name__ == '__main__':
-    print(create_tenant(apic_host, 'qytang_final_t1'))
-    print(create_application_profiles(apic_host, 'qytang_final_t1', 'qytang-ap'))
-    print(create_epg(apic_host, 'qytang_final_t1', 'qytang-ap', 'web', 'default'))
-    print(epg_add_contract(apic_host, 'qytang_final_t1', 'qytang-ap', 'web', 'sql', 'Consumed'))
+    print(create_tenant(apic_host, 'a_qytang_final_t1'))
+    print(create_application_profiles(apic_host, 'a_qytang_final_t1', 'qytang-ap'))
+    print(create_epg(apic_host, 'a_qytang_final_t1', 'qytang-ap', 'web', 'default'))
+    print(epg_add_contract(apic_host, 'a_qytang_final_t1', 'qytang-ap', 'web', 'sql', 'Consumed'))
